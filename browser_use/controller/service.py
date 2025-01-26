@@ -431,6 +431,17 @@ class Controller:
 				logger.error(msg)
 				return ActionResult(error=msg, include_in_memory=True)
 
+		@self.registry.action(
+			'Close the current browser tab',
+			requires_browser=True
+		)
+		async def close_tab(browser: BrowserContext):
+			page = await browser.get_current_page()
+			await page.close()
+			msg = '🔒 Closed current tab'
+			logger.info(msg)
+			return ActionResult(extracted_content=msg, include_in_memory=True)
+
 	def action(self, description: str, **kwargs):
 		"""Decorator for registering custom actions
 

@@ -26,7 +26,7 @@ async def run_search():
 
 	agent = Agent(
 		#task=('go to amazon.com, search for laptop, sort by best rating, and give me the price of the first result'),
-		task=('打开https://www.ctrip.com/, 搜素明天北京到深圳的机票和深圳的酒店，要求飞行时间在10:00~22:00之间，酒店要求举例宝安机场10km以内，并把结果输出给我'),
+		task=('打开https://www.ctrip.com/, 打开成功后，关闭这个标签页'),
 		llm=ChatOpenAI(
 			base_url='https://api.deepseek.com/v1',
 			model='deepseek-reasoner',
